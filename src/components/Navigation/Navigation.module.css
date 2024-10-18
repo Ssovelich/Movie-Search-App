@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 70px;
+  background: #000;
+}
+.link {
+  display: inline-flex;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 22px;
+  transition: all 0.5s;
+  color: #868585;
+}
+.active {
+  color: white;
+  border-color: white;
+}
