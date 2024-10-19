@@ -1,11 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
     <div>
-      <h2>NotFoundPage</h2>
-
-      <NavLink to="/">Go back</NavLink>
+      <Link to="/">Go back to HOME</Link>
+      <h2 style={{ textAlign: "center" }}>NotFoundPage</h2>
     </div>
   );
 };

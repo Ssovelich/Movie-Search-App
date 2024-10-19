@@ -4,11 +4,21 @@ import { fetchSearchMovies } from "../services/api";
 import MovieList from "../components/MovieList/MovieList";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/Loader/Loader";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
-  const [query, setQuery] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  //Зчитуємо значення пошуку з адреси і додаємо в query
+  const query = searchParams.get("q");
+  // console.log(query);
+
+  const onSearch = (searchTerm) => {
+    //Записуємо в обєкт searchParams значенни поля пошуку
+    //при відправці форми змінюється одреса сторнки з урахуванням пошукового запиту
+    setSearchParams({ q: searchTerm });
+  };
 
   useEffect(() => {
     const fetchSearchMoviesHandler = async () => {
@@ -48,7 +58,7 @@ const MoviesPage = () => {
   return (
     <div>
       <Toaster />
-      {<SearchBar setQuery={setQuery} />}
+      {<SearchBar onSearch={onSearch} />}
       {loading && <Loader />}
       <MovieList movies={movies} />
     </div>

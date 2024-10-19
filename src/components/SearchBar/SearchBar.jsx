@@ -2,12 +2,12 @@ import styles from "./SearchBar.module.css";
 import { CiSearch } from "react-icons/ci";
 import toast, { Toaster } from "react-hot-toast";
 
-const SearchBar = ({ setQuery }) => {
+const SearchBar = ({ onSearch }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const query = form.elements.search.value.trim();
-    console.log(query);
+    // console.log(query);
 
     if (!query) {
       toast.error("Enter the query text", {
@@ -24,7 +24,7 @@ const SearchBar = ({ setQuery }) => {
     } else {
       //   reset();
 
-      setQuery(query);
+      onSearch(query);
 
       event.target.reset();
     }
@@ -40,7 +40,7 @@ const SearchBar = ({ setQuery }) => {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
         />
         <button className={styles.btn} type="submit">
           Search &nbsp; <CiSearch />

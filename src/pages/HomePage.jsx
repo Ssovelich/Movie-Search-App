@@ -13,7 +13,7 @@ const HomePage = () => {
         // Показуємо лоадер
         setLoading(true);
         const data = await fetchTrendingMovies();
-        console.log(data.results);
+        // console.log(data.results);
         setMovies(data.results);
       } catch (error) {
         console.log(error.message);
@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2>Trending today</h2>
+      <h2 style={{ textAlign: "center" }}>Trending today</h2>
       {loading && <Loader />}
       <MovieList movies={movies} />
     </div>

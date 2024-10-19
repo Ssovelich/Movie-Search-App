@@ -1,0 +1,27 @@
+.list {
+  list-style: none;
+  padding-left: 20px;
+}
+.item {
+  border-bottom: 3px solid #ffffff;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+.wrap {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+.img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 200px;
+  height: 230px;
+}
+.textInfo {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  margin-bottom: 0;
+}

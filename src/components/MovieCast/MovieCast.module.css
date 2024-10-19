@@ -9,28 +9,22 @@
   list-style: none;
 }
 .listItem {
-  width: calc((100% - 4 * 20px) / 5);
+  width: calc((100% - 3 * 20px) / 4);
   display: flex;
-  justify-content: center;
+  jjustify-content: flex-start;
   align-items: center;
+  gap: 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   padding: 8px;
 }
-.link {
-  color: #ffffff;
-}
 .img {
   display: block;
   object-fit: cover;
-  height: 300px;
-  width: 200px;
-  margin: auto;
+  height: 200px;
+  width: 100px;
+
   border-radius: 5px;
 }
-.rating {
-  text-align: center;
-}
-.title {
-  text-align: center;
+.wrapInfo {
 }

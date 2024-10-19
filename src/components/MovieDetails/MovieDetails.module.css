@@ -1,0 +1,41 @@
+.btn {
+  background: #242323c5;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.btn:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.wrapImg {
+  display: flex;
+  padding: 20px;
+  gap: 30px;
+}
+.img {
+  object-fit: cover;
+  height: 400px;
+  width: 300px;
+  border-radius: 5px;
+}
+.wrapInfo {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  padding: 0;
+}
+p,
+h3 {
+  margin-top: 0;
+}
+.linksInfo {
+  display: flex;
+  gap: 20px;
+  padding-left: 20px;
+  color: #ffffff;
+  background: #000;
+}
+.link {
+  padding: 10px;
+}
