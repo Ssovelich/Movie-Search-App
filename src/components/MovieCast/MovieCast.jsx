@@ -35,7 +35,9 @@ const MovieCast = () => {
       {loading && <Loader />}
 
       {cast == 0 ? (
-        <p>We don&apos;t have any cast for this movie.</p>
+        <p style={{ textAlign: "center" }}>
+          We don&apos;t have any cast for this movie.
+        </p>
       ) : (
         <ul className={styles.list}>
           {cast?.length > 0 &&

@@ -34,7 +34,9 @@ const MovieReviews = () => {
     <div>
       {loading && <Loader />}
       {reviews == 0 ? (
-        <p>We don&apos;t have any reviews for this movie.</p>
+        <p style={{ textAlign: "center" }}>
+          We don&apos;t have any reviews for this movie.
+        </p>
       ) : (
         <ul className={styles.list}>
           {reviews?.length > 0 &&
