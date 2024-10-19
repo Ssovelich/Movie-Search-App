@@ -16,6 +16,9 @@
   color: #868585;
   text-decoration: none;
 }
+.link:hover {
+  color: #8685859d;
+}
 .active {
   color: white;
   border-color: white;

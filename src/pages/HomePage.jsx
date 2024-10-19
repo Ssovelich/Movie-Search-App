@@ -13,7 +13,7 @@ const HomePage = () => {
         // Показуємо лоадер
         setLoading(true);
         const data = await fetchTrendingMovies();
-        // console.log(data.results);
+        console.log(data.results);
         setMovies(data.results);
       } catch (error) {
         console.log(error.message);

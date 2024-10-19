@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-
   color: #ffffff;
   list-style: none;
 }
@@ -19,6 +18,11 @@
 }
 .link {
   color: #ffffff;
+  text-decoration: none;
+}
+.link:hover {
+  color: #ffffff;
+  transform: scale(1.03);
 }
 .img {
   display: block;
@@ -31,6 +35,7 @@
 .rating {
   text-align: center;
 }
+
 .title {
   text-align: center;
 }

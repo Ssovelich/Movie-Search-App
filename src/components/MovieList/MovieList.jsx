@@ -1,8 +1,5 @@
 import styles from "./MovieList.module.css";
-// import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import fetchTrendingMovies from "../../services/api";
-// import fetchSearchMovies from "../../services/apiSearch";
 
 const defaultIMG =
   "https://dummyimage.com/200x300/6e6b6e/000000.png&text=NO+IMG";
@@ -34,6 +31,7 @@ const MovieList = ({ movies }) => {
                 <p className={styles.rating}>
                   {movie.vote_average.toFixed(1)}/10
                 </p>
+                <p className={styles.rating}>{movie.release_date}</p>
                 <p className={styles.title}>{movie.title}</p>
               </Link>
             </li>
