@@ -37,13 +37,13 @@ export const fetchDetailsMovie = async (id) => {
   return response.data;
 };
 
-export const fetchCastMovies = async (id) => {
+export const fetchCastMovie = async (id) => {
   const response = await moviesInstance.get(`movie/${id}/credits`, options);
 
   return response.data;
 };
 
-export const fetchReviewsMovies = async (id) => {
+export const fetchReviewsMovie = async (id) => {
   const response = await moviesInstance.get(`movie/${id}/reviews`, options);
 
   return response.data;

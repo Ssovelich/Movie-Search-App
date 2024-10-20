@@ -1,4 +1,4 @@
-import { fetchReviewsMovies } from "../../services/api";
+import { fetchReviewsMovie } from "../../services/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./MovieReviews.module.css";
@@ -17,7 +17,7 @@ const MovieReviews = () => {
       try {
         // Показуємо лоадер
         setLoading(true);
-        const data = await fetchReviewsMovies(movieId);
+        const data = await fetchReviewsMovie(movieId);
         // console.log(data.results);
         setReviews(data.results);
       } catch (error) {

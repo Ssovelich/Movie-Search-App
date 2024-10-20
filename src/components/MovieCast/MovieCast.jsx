@@ -1,4 +1,4 @@
-import { fetchCastMovies } from "../../services/api";
+import { fetchCastMovie } from "../../services/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./MovieCast.module.css";
@@ -17,7 +17,7 @@ const MovieCast = () => {
       try {
         // Показуємо лоадер
         setLoading(true);
-        const data = await fetchCastMovies(movieId);
+        const data = await fetchCastMovie(movieId);
         // console.log(data.cast);
         setCast(data.cast);
       } catch (error) {
