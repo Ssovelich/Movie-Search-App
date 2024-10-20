@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./MovieCast.module.css";
 import Loader from "../Loader/Loader";
-
-const defaultIMG =
-  "https://dummyimage.com/100x200/6e6b6e/000000.png&text=NO+IMG";
+import { defaultIMG } from "../../services/defaultIMG.js";
 
 const MovieCast = () => {
   const [cast, setCast] = useState(null);

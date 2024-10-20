@@ -34,9 +34,16 @@ h3 {
   display: flex;
   gap: 20px;
   padding-left: 20px;
-  color: #ffffff;
   background: #000;
 }
 .link {
   padding: 10px;
+  color: #8685859d;
+}
+.link:hover {
+  color: #ffffff;
+}
+.active {
+  color: white;
+  text-decoration: none;
 }

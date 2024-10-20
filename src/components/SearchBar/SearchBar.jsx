@@ -4,11 +4,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 const SearchBar = ({ onSearch }) => {
   const handleSubmit = (event) => {
+    //Скидання дефолтного перезаваннтаження форми прр сабміті
     event.preventDefault();
+    //Знаходимо форму
     const form = event.target;
+    //знаходимо значення елемента фомми(input)
     const query = form.elements.search.value.trim();
     // console.log(query);
-
+    //Якщо відпривлено пучти запрос, зявиться повідомлення
     if (!query) {
       toast.error("Enter the query text", {
         position: "top-right",

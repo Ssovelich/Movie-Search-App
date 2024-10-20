@@ -1,8 +1,6 @@
-import styles from "./MovieList.module.css";
 import { Link, useLocation } from "react-router-dom";
-
-const defaultIMG =
-  "https://dummyimage.com/200x300/6e6b6e/000000.png&text=NO+IMG";
+import styles from "./MovieList.module.css";
+import { defaultIMG } from "../../services/defaultIMG.js";
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
@@ -29,9 +27,11 @@ const MovieList = ({ movies }) => {
                   alt={movie.title}
                 />
                 <p className={styles.rating}>
+                  {/* повертає число округлене до десятих */}
                   {movie.vote_average.toFixed(1)}/10
                 </p>
                 <p className={styles.rating}>
+                  {/* повертає данні з рядка тільки з 1 по 4 символ */}
                   {movie.release_date.substring(0, 4)}
                 </p>
                 <p className={styles.title}>{movie.title}</p>

@@ -1,6 +1,6 @@
-import MovieList from "../components/MovieList/MovieList";
 import { useState, useEffect } from "react";
 import { fetchTrendingMovies } from "../services/api";
+import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 

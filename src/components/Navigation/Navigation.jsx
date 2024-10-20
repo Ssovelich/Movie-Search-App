@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import styles from "./Navigation.module.css";
 import clsx from "clsx";
-
+import styles from "./Navigation.module.css";
+//Стилі для активного посилання
 const buildStylesClasses = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
 

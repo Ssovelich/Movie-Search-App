@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-import styles from "./MovieDetails.module.css";
+import clsx from "clsx";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
+
 import { fetchDetailsMovie } from "../../services/api";
 import Loader from "../Loader/Loader";
-import { Link, useNavigate, useLocation } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-// import clsx from "clsx";
+import styles from "./MovieDetails.module.css";
+import { defaultIMG } from "../../services/defaultIMG.js";
 
-// const buildStylesClasses = ({ isActive }) =>
-//   clsx(styles.link, isActive && styles.active);
+const buildStylesClasses = ({ isActive }) =>
+  clsx(styles.link, isActive && styles.active);
 
 const MovieDetails = ({ id }) => {
   const [detailsMovie, setDetailsMovie] = useState(null);
@@ -37,8 +39,6 @@ const MovieDetails = ({ id }) => {
     fetchDetailsMoviesHandler();
   }, [id]);
 
-  const defaultIMG =
-    "https://dummyimage.com/300x400/6e6b6e/000000.png&text=NO+IMG";
   //якщо перешли за скопійованим посиланням і немає данних про
   //попередню сторінку, то перейди на сторінку movies
   const backUrl = location.state?.from || "/movies";
@@ -83,20 +83,22 @@ const MovieDetails = ({ id }) => {
             </div>
           </div>
           <div className={styles.linksInfo}>
-            <Link
+            <NavLink
               state={{ from: backUrl }}
-              className={styles.link}
+              // className={styles.link}
+              className={buildStylesClasses}
               to={`/movies/${id}/cast`}
             >
               Cast
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               state={{ from: backUrl }}
-              className={styles.link}
+              // className={styles.link}
+              className={buildStylesClasses}
               to={`/movies/${id}/reviews`}
             >
               Reviews
-            </Link>
+            </NavLink>
           </div>
         </>
       )}
