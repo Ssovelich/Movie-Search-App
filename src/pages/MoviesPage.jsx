@@ -1,14 +1,16 @@
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { fetchSearchMovies } from "../services/api";
 import MovieList from "../components/MovieList/MovieList";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/Loader/Loader";
-import { useSearchParams } from "react-router-dom";
+import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   //Зчитуємо значення пошуку з адреси і додаємо в query
   const query = searchParams.get("q");
@@ -44,6 +46,7 @@ const MoviesPage = () => {
         }
         setMovies(data.results);
       } catch (error) {
+        setError(true);
         console.log(error.message);
       } finally {
         // //Приховуємо лоадер
@@ -60,7 +63,7 @@ const MoviesPage = () => {
       <Toaster />
       {<SearchBar onSearch={onSearch} />}
       {loading && <Loader />}
-      <MovieList movies={movies} />
+      {error ? <ErrorMessage /> : <MovieList movies={movies} />}
     </div>
   );
 };

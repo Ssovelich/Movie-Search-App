@@ -1,0 +1,12 @@
+.message {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0 auto;
+  color: #ffffff;
+  background: #ec3e3ecc;
+  /* border: 1px solid #ec3e3ecc; */
+  border-radius: 5px;
+  padding: 8px;
+  width: 350px;
+  text-align: center;
+}

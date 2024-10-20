@@ -31,7 +31,9 @@ const MovieList = ({ movies }) => {
                 <p className={styles.rating}>
                   {movie.vote_average.toFixed(1)}/10
                 </p>
-                <p className={styles.rating}>{movie.release_date}</p>
+                <p className={styles.rating}>
+                  {movie.release_date.substring(0, 4)}
+                </p>
                 <p className={styles.title}>{movie.title}</p>
               </Link>
             </li>

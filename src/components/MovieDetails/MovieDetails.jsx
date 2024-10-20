@@ -3,6 +3,7 @@ import styles from "./MovieDetails.module.css";
 import { fetchDetailsMovie } from "../../services/api";
 import Loader from "../Loader/Loader";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 // import clsx from "clsx";
 
 // const buildStylesClasses = ({ isActive }) =>
@@ -11,6 +12,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const MovieDetails = ({ id }) => {
   const [detailsMovie, setDetailsMovie] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   //location інформація про сторінку на які знаходимось
   const location = useLocation();
@@ -25,6 +27,7 @@ const MovieDetails = ({ id }) => {
         // console.log(data);
         setDetailsMovie(data);
       } catch (error) {
+        setError(true);
         console.log(error.message);
       } finally {
         // Приховуємо лоадер
@@ -48,49 +51,55 @@ const MovieDetails = ({ id }) => {
         ⇐ Go back
       </button>
       {loading && <Loader />}
-      <div className={styles.wrapImg}>
-        <img
-          className={styles.img}
-          src={
-            detailsMovie?.poster_path
-              ? `https://image.tmdb.org/t/p/w200${detailsMovie?.poster_path}`
-              : defaultIMG
-          }
-          alt={id.title}
-        />
-        <div className={styles.wrapInfo}>
-          <h2 className={styles.title}>{detailsMovie?.title}</h2>
-          <p className={styles.release}>
-            Release:&nbsp;{detailsMovie?.release_date}
-          </p>
-          <p className={styles.rate}>
-            User Score:&nbsp;
-            {Math.round(detailsMovie?.vote_average * 10)}%
-          </p>
-          <h3 className={styles.overviewTitle}>Overview</h3>
-          <p className={styles.overview}>{detailsMovie?.overview}</p>
-          <h3 className={styles.genresTitle}>Genres</h3>
-          <p className={styles.genres}>
-            {detailsMovie?.genres.map((genre) => genre.name).join(" ")}
-          </p>
-        </div>
-      </div>
-      <div className={styles.linksInfo}>
-        <Link
-          state={{ from: backUrl }}
-          className={styles.link}
-          to={`/movies/${id}/cast`}
-        >
-          Cast
-        </Link>
-        <Link
-          state={{ from: backUrl }}
-          className={styles.link}
-          to={`/movies/${id}/reviews`}
-        >
-          Reviews
-        </Link>
-      </div>
+      {error ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <div className={styles.wrapImg}>
+            <img
+              className={styles.img}
+              src={
+                detailsMovie?.poster_path
+                  ? `https://image.tmdb.org/t/p/w200${detailsMovie?.poster_path}`
+                  : defaultIMG
+              }
+              alt={id.title}
+            />
+            <div className={styles.wrapInfo}>
+              <h2 className={styles.title}>{detailsMovie?.title}</h2>
+              <p className={styles.release}>
+                Release:&nbsp;{detailsMovie?.release_date}
+              </p>
+              <p className={styles.rate}>
+                User Score:&nbsp;
+                {Math.round(detailsMovie?.vote_average * 10)}%
+              </p>
+              <h3 className={styles.overviewTitle}>Overview</h3>
+              <p className={styles.overview}>{detailsMovie?.overview}</p>
+              <h3 className={styles.genresTitle}>Genres</h3>
+              <p className={styles.genres}>
+                {detailsMovie?.genres.map((genre) => genre.name).join(" ")}
+              </p>
+            </div>
+          </div>
+          <div className={styles.linksInfo}>
+            <Link
+              state={{ from: backUrl }}
+              className={styles.link}
+              to={`/movies/${id}/cast`}
+            >
+              Cast
+            </Link>
+            <Link
+              state={{ from: backUrl }}
+              className={styles.link}
+              to={`/movies/${id}/reviews`}
+            >
+              Reviews
+            </Link>
+          </div>
+        </>
+      )}
     </>
   );
 };
