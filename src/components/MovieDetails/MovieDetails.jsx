@@ -82,21 +82,24 @@ const MovieDetails = ({ id }) => {
               </p>
             </div>
           </div>
-          <div className={styles.linksInfo}>
-            <NavLink
-              state={{ from: backUrl }}
-              className={buildStylesClasses}
-              to={`/movies/${id}/cast`}
-            >
-              Cast
-            </NavLink>
-            <NavLink
-              state={{ from: backUrl }}
-              className={buildStylesClasses}
-              to={`/movies/${id}/reviews`}
-            >
-              Reviews
-            </NavLink>
+          <div className={styles.moreInfo}>
+            <h3 className={styles.moreInfoTitle}>Additional information</h3>
+            <div className={styles.linksInfo}>
+              <NavLink
+                state={{ from: backUrl }}
+                className={buildStylesClasses}
+                to={`/movies/${id}/cast`}
+              >
+                Cast
+              </NavLink>
+              <NavLink
+                state={{ from: backUrl }}
+                className={buildStylesClasses}
+                to={`/movies/${id}/reviews`}
+              >
+                Reviews
+              </NavLink>
+            </div>
           </div>
         </>
       )}

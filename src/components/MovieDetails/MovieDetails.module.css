@@ -30,6 +30,18 @@ p,
 h3 {
   margin-top: 0;
 }
+.moreInfo {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 20px;
+  padding-top: 10px;
+  background: #000;
+}
+.moreInfoTitle {
+  margin: 0;
+  color: #8685859d;
+}
 .linksInfo {
   display: flex;
   gap: 20px;
