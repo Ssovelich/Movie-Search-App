@@ -85,7 +85,6 @@ const MovieDetails = ({ id }) => {
           <div className={styles.linksInfo}>
             <NavLink
               state={{ from: backUrl }}
-              // className={styles.link}
               className={buildStylesClasses}
               to={`/movies/${id}/cast`}
             >
@@ -93,7 +92,6 @@ const MovieDetails = ({ id }) => {
             </NavLink>
             <NavLink
               state={{ from: backUrl }}
-              // className={styles.link}
               className={buildStylesClasses}
               to={`/movies/${id}/reviews`}
             >
