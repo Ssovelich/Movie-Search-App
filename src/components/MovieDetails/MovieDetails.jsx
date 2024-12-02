@@ -7,6 +7,7 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import styles from "./MovieDetails.module.css";
 import { defaultIMG } from "../../services/defaultIMG.js";
+import StarRating from "../StarRating/StarRating.jsx";
 
 const buildStylesClasses = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
@@ -70,10 +71,23 @@ const MovieDetails = ({ id }) => {
               <p className={styles.release}>
                 Release:&nbsp;{detailsMovie?.release_date}
               </p>
-              <p className={styles.rate}>
-                User Score:&nbsp;
-                {Math.round(detailsMovie?.vote_average * 10)}%
+              <p className={styles.release}>
+                Country:&nbsp;{detailsMovie?.origin_country}
               </p>
+              <p className={styles.release}>
+                Runtime:&nbsp;{detailsMovie?.runtime}min
+              </p>
+              <div className={styles.wrapRate}>
+                <p className={styles.rate}>
+                  User Score:&nbsp;
+                  {Math.round(detailsMovie?.vote_average * 10)}%
+                </p>
+                <StarRating
+                  rating={Math.round(detailsMovie?.vote_average) / 2}
+                  totalStars={5}
+                />
+              </div>
+
               <h3 className={styles.overviewTitle}>Overview</h3>
               <p className={styles.overview}>{detailsMovie?.overview}</p>
               <h3 className={styles.genresTitle}>Genres</h3>

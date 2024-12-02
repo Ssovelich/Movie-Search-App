@@ -1,19 +1,18 @@
 .list {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 20px;
-
   color: #ffffff;
   list-style: none;
 }
 .listItem {
-  width: calc((100% - 3 * 20px) / 4);
   display: flex;
-  jjustify-content: flex-start;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  width: 260px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   padding: 8px;
@@ -23,8 +22,19 @@
   object-fit: cover;
   height: 200px;
   width: 150px;
-
   border-radius: 5px;
 }
-.wrapInfo {
+
+@media (min-width: 760px) {
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1280px) {
+  .listItem {
+    width: calc((100% - 3 * 20px) / 4);
+  }
 }

@@ -1,14 +1,14 @@
 .list {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 14px;
   color: #ffffff;
   list-style: none;
 }
 .listItem {
-  width: calc((100% - 4 * 20px) / 5);
+  width: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +32,26 @@
   margin: auto;
   border-radius: 5px;
 }
-.rating {
+.text {
+  text-align: center;
+}
+.title {
   text-align: center;
 }
 
-.title {
-  text-align: center;
+@media (min-width: 760px) {
+  .list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .listItem {
+    width: calc((100% - 2 * 20px) / 3);
+  }
+}
+
+@media (min-width: 1280px) {
+  .listItem {
+    width: calc((100% - 4 * 20px) / 5);
+  }
 }

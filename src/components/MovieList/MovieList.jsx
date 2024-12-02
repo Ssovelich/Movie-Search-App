@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "./MovieList.module.css";
 import { defaultIMG } from "../../services/defaultIMG.js";
+import StarRating from "../StarRating/StarRating.jsx";
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
@@ -26,11 +27,11 @@ const MovieList = ({ movies }) => {
                   }
                   alt={movie.title}
                 />
-                <p className={styles.rating}>
-                  {/* повертає число округлене до десятих */}
-                  {movie.vote_average.toFixed(1)}/10
-                </p>
-                <p className={styles.rating}>
+                <StarRating
+                  rating={Math.round(movie.vote_average) / 2}
+                  totalStars={5}
+                />
+                <p className={styles.text}>
                   {/* повертає данні з рядка тільки з 1 по 4 символ */}
                   {movie.release_date.substring(0, 4)}
                 </p>

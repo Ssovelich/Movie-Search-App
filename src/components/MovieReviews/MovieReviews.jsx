@@ -53,7 +53,12 @@ const MovieReviews = () => {
                   />
                   <div className={styles.textInfo}>
                     <p>Author:&nbsp;{review.author}</p>
-                    <p>Updated:&nbsp;{review.updated_at}</p>
+                    {/* повертає данні з рядка тільки з 1 по 10 символ */
+                    /* повертає данні з рядка тільки з 11 по 16 символ */}
+                    <p>
+                      Updated:&nbsp;{review.updated_at.substring(0, 10)}&nbsp;
+                      {review.updated_at.substring(11, 16)}
+                    </p>
                   </div>
                 </div>
                 <p className={styles.content}>{review.content}</p>
