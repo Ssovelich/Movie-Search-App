@@ -3,6 +3,7 @@ import { fetchTrendingMovies } from "../services/api";
 import MovieList from "../components/MovieList/MovieList";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
+import ScrollToTopBtn from "../components/ScrollToTop/ScrollToTopBtn";
 
 const HomePage = () => {
   const [movies, setMovies] = useState(null);
@@ -33,6 +34,7 @@ const HomePage = () => {
       <h2 style={{ textAlign: "center" }}>Trending today</h2>
       {loading && <Loader />}
       {error ? <ErrorMessage /> : <MovieList movies={movies} />}
+      <ScrollToTopBtn />
     </div>
   );
 };

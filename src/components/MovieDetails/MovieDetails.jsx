@@ -9,6 +9,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import styles from "./MovieDetails.module.css";
 import { defaultIMG } from "../../services/defaultIMG.js";
 import StarRating from "../StarRating/StarRating.jsx";
+import ScrollToTopBtn from "../ScrollToTop/ScrollToTopBtn.jsx";
 
 const buildStylesClasses = ({ isActive }) =>
   clsx(styles.link, isActive && styles.active);
@@ -131,6 +132,7 @@ const MovieDetails = ({ id }) => {
                 Reviews
               </NavLink>
             </div>
+            <ScrollToTopBtn />
           </div>
         </>
       )}
