@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 import { fetchDetailsMovie } from "../../services/api";
 import Loader from "../Loader/Loader";
@@ -56,16 +57,32 @@ const MovieDetails = ({ id }) => {
         <ErrorMessage />
       ) : (
         <>
-          <div className={styles.wrapImg}>
-            <img
-              className={styles.img}
-              src={
-                detailsMovie?.poster_path
-                  ? `https://image.tmdb.org/t/p/w200${detailsMovie?.poster_path}`
-                  : defaultIMG
-              }
-              alt={id.title}
-            />
+          <div className={styles.wrap}>
+            <div className={styles.wrapImg}>
+              <img
+                className={styles.img}
+                src={
+                  detailsMovie?.poster_path
+                    ? `https://image.tmdb.org/t/p/w200${detailsMovie?.poster_path}`
+                    : defaultIMG
+                }
+                alt={id.title}
+              />
+              <a
+                className={styles.play}
+                href={`https://www.youtube.com/results?search_query=${
+                  detailsMovie?.title
+                    .split("") // Розбиваємо текст на масив символів
+                    .filter((char) => /[a-zA-Zа-яА-Я0-9 ]/.test(char)) // Залишаємо лише літери, цифри та пробіли
+                    .join("") // Збираємо назад у строку
+                    .replace(/ /g, "+") // Замінюємо пробіли на '+'
+                }+${detailsMovie?.release_date.substring(0, 4)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaPlay className={styles.playIcon} />
+              </a>
+            </div>
             <div className={styles.wrapInfo}>
               <h2 className={styles.title}>{detailsMovie?.title}</h2>
               <p className={styles.release}>
