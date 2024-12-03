@@ -6,6 +6,7 @@ import MovieList from "../components/MovieList/MovieList";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
+import ScrollToTopBtn from "../components/ScrollToTop/ScrollToTopBtn";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
@@ -64,6 +65,7 @@ const MoviesPage = () => {
       {<SearchBar onSearch={onSearch} />}
       {loading && <Loader />}
       {error ? <ErrorMessage /> : <MovieList movies={movies} />}
+      <ScrollToTopBtn />
     </div>
   );
 };
